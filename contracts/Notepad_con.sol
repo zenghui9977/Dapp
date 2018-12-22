@@ -14,7 +14,7 @@ contract Notepad_con {
     struct Task {
         uint id;
         string task_name;
-        string discription;
+        string description;
         string ipfs_hash;
         bool finished;
         uint timestamp;
@@ -46,7 +46,7 @@ contract Notepad_con {
     //events
     event TaskAdded(
         string task_name, 
-        string discription, 
+        string description, 
         string ipfs_hash, 
         bool finished, 
         uint deadline,
@@ -56,7 +56,7 @@ contract Notepad_con {
     event OwnerAdded(address ownerAddr);
     event TaskFinishedChanged(uint id , bool finished, uint completedData);
     event TaskDDLChanged(uint id ,uint deadline);
-    event TaskDiscriptionChanged(uint id ,string discription);
+    event TaskDescriptionChanged(uint id ,string description);
     event TaskNameChanged(uint id ,string name);
     event TaskFileChanged(uint id ,string ipfs_hash);
     
@@ -102,7 +102,7 @@ contract Notepad_con {
         return(
          id,
          TaskID_to_Task[id].task_name,
-         TaskID_to_Task[id].discription,
+         TaskID_to_Task[id].description,
          TaskID_to_Task[id].ipfs_hash,
          TaskID_to_Task[id].finished,
          TaskID_to_Address[id]
@@ -126,7 +126,7 @@ contract Notepad_con {
     //add task
     function addTask (
         string _task_name,
-        string _discription,
+        string _description,
         string _ipfsHash,
         uint _deadline,
         address ownerAddr ) public {
@@ -139,7 +139,7 @@ contract Notepad_con {
         uint update_time = now * 1000;
 
         taskNumber++;
-        Task memory task = Task(taskNumber, _task_name, _discription, _ipfsHash, false, update_time, _deadline,0);
+        Task memory task = Task(taskNumber, _task_name, _description, _ipfsHash, false, update_time, _deadline,0);
 
         //add into Task_list
         Task_list.push(task);
@@ -149,7 +149,7 @@ contract Notepad_con {
         TaskID_to_Address[taskNumber] = ownerAddr;
         TaskID_to_Task[taskNumber] = task;
         OwnerTaskCount[ownerAddr]++;
-        emit TaskAdded(_task_name, _discription, _ipfsHash, false, _deadline, update_time, ownerAddr);
+        emit TaskAdded(_task_name, _description, _ipfsHash, false, _deadline, update_time, ownerAddr);
     }
 
    //judge whether the Owner is in the list
@@ -173,14 +173,14 @@ contract Notepad_con {
     //change the state that has been finished or not
     function Task_finished_change (uint _id) public {
         //find the task
-        require (_id <= taskNumber); 
+         
         //Task_list update
-        Task_list[_id].finished = !Task_list[_id].finished;
+        Task_list[_id-1].finished = !Task_list[_id-1].finished;
         //mapping update
         TaskID_to_Task[_id].finished = !TaskID_to_Task[_id].finished;
 
         //change the completedData
-        Task_list[_id].completedData = Task_list[_id].finished ? now*1000 : 0;
+        Task_list[_id-1].completedData = Task_list[_id-1].finished ? now*1000 : 0;
         TaskID_to_Task[_id].completedData = TaskID_to_Task[_id].finished ? now*1000 : 0;
 
         emit TaskFinishedChanged(_id, TaskID_to_Task[_id].finished, TaskID_to_Task[_id].completedData);      
@@ -195,13 +195,13 @@ contract Notepad_con {
         emit TaskDDLChanged(_id, _deadline);
     }
         
-    //change the discription of the task
-    function Task_discription_change (uint _id, string _discription) public {
+    //change the description of the task
+    function Task_description_change (uint _id, string _description) public {
         require (_id <= taskNumber);
-        Task_list[_id].discription = _discription;
+        Task_list[_id].description = _description;
         //mapping update
-        TaskID_to_Task[_id].discription = _discription; 
-        emit TaskDiscriptionChanged(_id, _discription);     
+        TaskID_to_Task[_id].description = _description; 
+        emit TaskDescriptionChanged(_id, _description);     
     }
 
     //change the name of the task
