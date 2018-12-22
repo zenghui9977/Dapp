@@ -12,22 +12,13 @@ body {
   background-color: #fcfcfc;
 }
 
-footer {
-  background-color: #ff9800;
-  color: white;
-  padding: 25px 15px;
-}
-
-footer a {
- color: black;
- font-weight: bold;
-}
 
 /**
  * Generic Styles 
  */
 .orange {
   color: #ff9800;
+  text-align: center;
 }
 
 /* Inspiration: Google material design */
@@ -45,10 +36,7 @@ footer a {
               0 3px 1px -2px rgba(0,0,0,0.2);
 }
 
-.task-done {
-  text-decoration: line-through;
-  background-color: #eee;
-}
+
 
 .btn-primary {
   background-color: #ff9800;;
@@ -85,7 +73,7 @@ footer a {
 #page-header {
   margin-top: 0;
   margin-bottom: 25px;
-  background: #29b6f6;
+  background: rgba(0,0,0,.075);
   color: white;
   border-bottom: none;
   webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 

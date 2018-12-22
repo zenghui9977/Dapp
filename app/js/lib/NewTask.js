@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ipfs from './ipfs'
+import ipfs from './ipfs';
+import {Input} from 'antd';
 
 class NewTask extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class NewTask extends Component {
 
   onSubmit(e) {
     e.preventDefault();
-    
+    console.log(e);
     var name = e.target.elements[0].value;
     var discription = e.target.elements[1].value;
     var date = new Date(e.target.elements[3].value);
@@ -78,7 +79,7 @@ class NewTask extends Component {
             </div>
             <div className="form-group">
                 <label for="task-ipfs">Select File</label>
-                <input id="task-ipfs" type="file" className="form-control" onChange={this.captureFile}></input>
+                <Input id="task-ipfs" type="file" className="form-control" onChange={this.captureFile}></Input>
                 
             </div>
             <div className="form-group">

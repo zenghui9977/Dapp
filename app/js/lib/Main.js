@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import NewTask from './NewTask';
-import Tasks from './Tasks';
+import TaskAnt from './taskant';
 
 class Main extends Component {
   render() {
-    const { tasks,  addTask, Task_finished_change } = this.props;
+    const { tasks, tasks_Date, addTask, Task_finished_change } = this.props;
     return (
       <div className="container">
         <div className="row">
@@ -12,9 +12,10 @@ class Main extends Component {
             <NewTask addTask={addTask} />
           </div>
         </div>
+
         <div className="row">
           <div className="col-sm-12">
-            <Tasks tasks={tasks} Task_finished_change={Task_finished_change} />
+             <TaskAnt tasks={tasks} tasks_Date={tasks_Date} Task_finished_change={Task_finished_change}/>
           </div>
         </div>
       </div>
