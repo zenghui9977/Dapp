@@ -10,5 +10,7 @@ npm install -g truffle
 ```javascript
 npm install -g ganache-cli
 ```
-或者
+或者到对应的github上下载GUI
+https://github.com/trufflesuite/ganache/releases
+
 
