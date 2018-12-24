@@ -38,4 +38,4 @@ npm run dev-back
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20181224153644390.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzA0NTk2,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20181224153657789.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzA0NTk2,size_16,color_FFFFFF,t_70)
 
-（Note! 由于使用IPFS存储以及获取文件，文件传输较慢显示时间可能较长，若长时间显示不了，请检查网络环境）
+（Note! 由于使用IPFS存储以及获取文件，文件传输较慢显示时间可能较长，若长时间显示不了，请检查网络环境以及是否科学上网）
