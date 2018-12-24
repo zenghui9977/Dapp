@@ -19,7 +19,7 @@ npm install -g ganache-cli
 或者到对应的github上下载GUI
 https://github.com/trufflesuite/ganache/releases
 # 下载部署
-3. 从github上下载此项目
+3.从github上下载此项目
 
 4.打开至对应的项目文件夹，下载相应的node_modules
 ```javascript
