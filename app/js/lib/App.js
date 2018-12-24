@@ -1,6 +1,9 @@
 import React, { Component, Fragment } from 'react';
-import Header from './Header';
+import Head from './Header';
 import Main from './Main';
+import {Layout} from 'antd';
+
+const {Header, Footer, Content,}=Layout;
 
 class App extends Component {
   constructor(props) {
@@ -87,15 +90,24 @@ class App extends Component {
 
     if(accounts.length === 0) return <div>Loading...</div>;
     return (
-      <Fragment>
-        <Header address={address} />
-        <Main 
-          tasks={tasks} 
-          tasks_Date={tasks_Date}
-          addTask={this.addTask} 
-          Task_finished_change={this.Task_finished_change} 
-        />
-      </Fragment>
+
+      <Layout>
+        <Head/>
+        <Content>
+          <Main 
+            tasks={tasks} 
+            tasks_Date={tasks_Date}
+            addTask={this.addTask} 
+            Task_finished_change={this.Task_finished_change} 
+          />
+        </Content>
+        <Footer>
+           <div className="text-center">
+              <p1>合约部署地址:</p1>
+              {address}
+           </div>
+        </Footer>
+      </Layout>
     );
   }
 }
