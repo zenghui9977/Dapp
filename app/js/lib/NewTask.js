@@ -42,10 +42,10 @@ class NewTask extends Component {
     e.preventDefault();
     console.log(e);
     var name = e.target.elements[0].value;
-    var discription = e.target.elements[1].value;
+    var description = e.target.elements[1].value;
     var date = new Date(e.target.elements[3].value);
     var time = date.getTime();
-    console.log(name, discription,time);
+    console.log(name, description,time);
     var hash = this.state.ipfsHash;
     console.log('ipfs',this.state.ipfsHash,time);
 
@@ -74,8 +74,8 @@ class NewTask extends Component {
               <input id="task-name" type="text" className="form-control"></input>
             </div>
             <div className="form-group">
-                <label for="task-discription">Discription</label>
-                <input id="task-discription" type="text" className="form-control"></input>
+                <label for="task-description">Description</label>
+                <input id="task-description" type="text" className="form-control"></input>
             </div>
             <div className="form-group">
                 <label for="task-ipfs">Select File</label>
