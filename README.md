@@ -31,6 +31,8 @@ npm install
 npm run dev-front
 npm run dev-back
 ```
+npm run dev-front用于打包项目
+npm run dev-back用于将对应的项目与本地网络和端口相联系
 # 运行项目
 7. 运行完成之后，提示成功打包bundle.js，即可打开浏览器运行 http://127.0.0.1:8080
 
